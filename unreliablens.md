@@ -7,12 +7,12 @@ This script uses the news sources mentioned extracted from https://dataverse.har
 * It is a filtered list of 42 fake news urls (only related to US News), filtered from a list created by <br> **<cite>Allcott, Hunt, Matthew Gentzkow and Chuan Yu. 2019. “Trends in the diffusion of misin- formation on social media.”</cite>**
 * The list present in the replication material is not filtered , contains original 608 news sources, the actual filtered list they used is mentioned in a table in the supplemental materials.
 * Filtering was done by
-  * Non US-related
+  * removing Non US-related news sources
   * removing sources that other studies had classified as **"hard news"**
-  * removing **“that predominantly feature user-generated content (e.g., online bulletin boards), print publications, and political interest groups.”**
+  * removing **“that predominantly featured user-generated content (e.g., online bulletin boards), print publications, and political interest groups.”**
   * labels as **pro-rep** and **pro-dem** was used when 60% or more page views in the fall of 2018 came from people who identified with or lean toward the party in question
-  * So this list actually has 42 unreliable news sources to use
-  * Also the original fakenews list contains 608, where all sources except the ones mentioned below have no ideological slant
+  * So this list actually has 42 unreliable news sources to use (the ones that have a partisan stance)
+  * Additionaly the original fakenews list contains 608, where all sources except the ones mentioned below have no ideological slant
 
 ```
 pro_dem_fake = [ "ahtribune.com", 
