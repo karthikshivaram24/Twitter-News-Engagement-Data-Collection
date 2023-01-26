@@ -2,10 +2,16 @@
 
 This repository contains code that was used to collect data for the following publication works
 
-1. Detecting Criticism of Partisan News Media Online using Weakly Supervised Learning
-   
-2. Understanding and Forecasting News Engagement on Twitter
+**Prerequisites:**
 
+* Twitter API Academic Access
+* API related Credentials
+  * Bearer token, secret key etc ...
+* Install Twitter Search Client for Python (V2) (https://github.com/twitterdev/search-tweets-python/tree/v2)
+
+1. Detecting Criticism of Partisan News Media Online using Weakly Supervised Learning
+
+2. Understanding and Forecasting News Engagement on Twitter
 
 This Data collection process can be broken down into 4 phases
 
@@ -14,7 +20,6 @@ This Data collection process can be broken down into 4 phases
 3. Filtering Seed Users based on Account Age and Bot based Activity
 4. Sampling Users
 5. Collecting Entire Twitter Timelines for Sampled Users
-
 
 ## Phase 1 : Collecting News Sources
 
