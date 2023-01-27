@@ -63,4 +63,6 @@ The end result would be a set of pandas dataframes (one for each user) that cont
 |:--------:|:------------------------------:|:-----------------------------------------------------------------:|
 | 1        | Collect Timelines              | `src/seeduser/twitter_search_generator.py` (gen_user_search_cmds) |
 | 2        | Clean Timelines                | `src/timelines/timeline_cleaner.py`                               |
-| 3        | Extract Matches from Timelines | `src/timelines/timeline_matcher.py`                                        |
+| 3        | Extract Matches from Timelines | `src/timelines/timeline_matcher.py`                               |
+
+**Note: We also collect following information for each of the sampled users (`src\following\following_collector.py`)**
