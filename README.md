@@ -17,8 +17,8 @@ This Data collection process can be broken down into 4 phases
 
 1. Collecting and Identifying News Sources
 2. Collecting Seed Users (For each news source as well as a subset of random users)
-3. Filtering Seed Users based on Account Age and Bot based Activity
-4. Sampling Seed Users
+3. Filtering Seed Users based on Account Age (>= 5yrs) and Bot based Activity
+4. Sampling Filtered Users
 5. Collecting Entire Twitter Timelines for Sampled Users
 
 ## Phase 1 : Collecting News Sources
@@ -41,3 +41,10 @@ This Data collection process can be broken down into 4 phases
 | 2        | Sample a set of Random Users               | `src/seedusers/twitter_random_stream_sampler.py`|
 
 **Note :** For step 1, a shell script is generated which contains multiple calls to the Twitter Search Client for Python.
+
+## Phase 3: Filtering Seed Users
+
+| **Step** |     **Description**     |                     **Script**                     |
+|:--------:|:-----------------------:|:--------------------------------------------------:|
+| 1        | Filter for Account Age  | `src/filtering/filter_utils.py` (MergeSeedUsers()) |
+| 2        | Filter for Bot activity | `src/filtering/filter_utils.py` (filter_bots())    |
