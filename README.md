@@ -11,7 +11,7 @@ This repository contains code that was used to collect data for the following pu
 * Twitter API Academic Access
 * API related Credentials
   * Bearer token, secret key etc ...
-* Install Twitter Search Client for Python (V2) (https://github.com/twitterdev/search-tweets-python/tree/v2)
+* Install Twitter Search Client for Python (V2) (<https://github.com/twitterdev/search-tweets-python/tree/v2>)
 
 This Data collection process can be broken down into 4 phases
 
@@ -19,7 +19,9 @@ This Data collection process can be broken down into 4 phases
 2. Collecting Seed Users (For each news source as well as a subset of random users)
 3. Filtering Seed Users based on Account Age (>= 5yrs) and Bot based Activity
 4. Sampling Filtered Users
-5. Collecting Entire Twitter Timelines for Sampled Users
+5. Collecting Entire Twitter Timelines for Sampled Users and Preprocessing them
+
+The end result would be a set of pandas dataframes (one for each user) that contains user timelines
 
 ## Phase 1 : Collecting News Sources
 
@@ -48,3 +50,17 @@ This Data collection process can be broken down into 4 phases
 |:--------:|:-----------------------:|:--------------------------------------------------:|
 | 1        | Filter for Account Age  | `src/filtering/filter_utils.py` (MergeSeedUsers()) |
 | 2        | Filter for Bot activity | `src/filtering/filter_utils.py` (filter_bots())    |
+
+## Phase 4: Sampling Users
+
+| **Step** | **Description** |           **Script**           |
+|:--------:|:---------------:|:------------------------------:|
+| 1        | Sampling Users  | `src/sampling/user_sampler.py` |
+
+## Phase 5: User Timeline Collection and Preprocessing
+
+| **Step** |         **Description**        |                             **Script**                            |
+|:--------:|:------------------------------:|:-----------------------------------------------------------------:|
+| 1        | Collect Timelines              | `src/seeduser/twitter_search_generator.py` (gen_user_search_cmds) |
+| 2        | Clean Timelines                | `src/timelines/timeline_cleaner.py`                               |
+| 3        | Extract Matches from Timelines | `src/timelines/timeline_matcher.py`                                        |
