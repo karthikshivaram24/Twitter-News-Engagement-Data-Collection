@@ -34,6 +34,7 @@ The end result would be a set of pandas dataframes (one for each user) that cont
 | 5        | Collecting Twitter Handles for each identified News Source          | `src/newssources/twitter_handles_searcher.py`          |
 | 6        | Retrieving Account Information for each Twitter Handle              | `src/newssources/twitter_handles_info.py`     |
 
+Final Set of News sources are found in `Data/news_sources.csv`
 
 ## Phase 2: Seed User Collection
 
@@ -42,7 +43,7 @@ The end result would be a set of pandas dataframes (one for each user) that cont
 | 1        | Create Search Queries for Each News Source | `src/seedusers/twitter_search_generator.py` |
 | 2        | Sample a set of Random Users               | `src/seedusers/twitter_random_stream_sampler.py`|
 
-**Note :** For step 1, a shell script is generated which contains multiple calls to the Twitter Search Client for Python.
+**Note :** For step 1, a shell script is generated which contains multiple calls to the Twitter Search Client for Python and is found in `Data/seedscripts/`.
 
 ## Phase 3: Filtering Seed Users
 
@@ -57,6 +58,8 @@ The end result would be a set of pandas dataframes (one for each user) that cont
 |:--------:|:---------------:|:------------------------------:|
 | 1        | Sampling Users  | `src/sampling/user_sampler.py` |
 
+Final Set of sampled users are found in `Data/sampled_twitter_users.csv`
+
 ## Phase 5: User Timeline Collection and Preprocessing
 
 | **Step** |         **Description**        |                             **Script**                            |
@@ -64,5 +67,7 @@ The end result would be a set of pandas dataframes (one for each user) that cont
 | 1        | Collect Timelines              | `src/seeduser/twitter_search_generator.py` (gen_user_search_cmds) |
 | 2        | Clean Timelines                | `src/timelines/timeline_cleaner.py`                               |
 | 3        | Extract Matches from Timelines | `src/timelines/timeline_matcher.py`                               |
+
+The shell scripts generated for timeline collection are found in `Data/userscripts/`
 
 **Note: We also collect following information for each of the sampled users (`src\following\following_collector.py`)**

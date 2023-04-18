@@ -66,28 +66,23 @@ class FollowingFetcher(object):
         if "errors" not in response.json() :
 
             responses.append(response.json())
-
-            metadata = response.json()['meta']
-
-            while 'next_token' in metadata:
-                next_token = metadata['next_token']
-                url1= url + f"&pagination_token={next_token}"
-                response = requests.request("GET", url1, 
-                                           auth=self.bearer_oauth, params=params)
-                responses.append(response.json())
+            
+            try:
                 metadata = response.json()['meta']
 
+                while 'next_token' in metadata:
+                    next_token = metadata['next_token']
+                    url1= url + f"&pagination_token={next_token}"
+                    response = requests.request("GET", url1, 
+                                               auth=self.bearer_oauth, params=params)
+                    responses.append(response.json())
+                    metadata = response.json()['meta']
+            except:
+                print(response.json().keys())
         else:
             print(f"{'error' : <7} : Error Occurred - {response.json()['errors'][0]['title']}")
         
         return responses
-    
-    def batch(self,iterable, n=1):
-        """
-        """
-        l = len(iterable)
-        for ndx in range(0, l, n):
-            yield iterable[ndx:min(ndx + n, l)]
     
     def run(self):
         """
@@ -119,6 +114,7 @@ if __name__ == "__main__":
     
     my_parser = argparse.ArgumentParser()
     
+    # add bearer_tokens
     bearer_tokens = {"userA":"",
                      "userB":""}
     
